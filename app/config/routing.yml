@@ -1,3 +1,7 @@
+kitpages_shop_cms:
+    resource: "@KitpagesShopCmsBundle/Resources/config/routing.xml"
+    prefix:   /
+
 app_kit_site:
     resource: "@AppSiteBundle/Resources/config/routing.yml"
 

@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new App\UserBundle\AppUserBundle(),
             new App\LanguageBundle\AppLanguageBundle(),
+            new Kitpages\ShopCmsBundle\KitpagesShopCmsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

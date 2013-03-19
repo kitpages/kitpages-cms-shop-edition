@@ -1,8 +1,8 @@
-Kitpages Cms Edition
+Kitpages Cms Shop Edition
 ========================
 
-This document contains information on how to install KitpagesCms Edition.
-KitpagesCms Edition is based on Symfony Standard edition with additional the bundle to use the kitpages Cms
+This document contains information on how to install KitpagesCms Edition with a shop.
+KitpagesCms Shop Edition is based on Symfony Standard edition with additional the bundle to use the kitpages Cms
 
 ## Installation
 
