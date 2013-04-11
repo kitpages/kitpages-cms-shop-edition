@@ -51,4 +51,27 @@ class Group extends BaseGroup
     {
         return $this->userList;
     }
+
+    /**
+     * Add userList
+     *
+     * @param \App\UserBundle\Entity\User $userList
+     * @return Group
+     */
+    public function addUserList(\App\UserBundle\Entity\User $userList)
+    {
+        $this->userList[] = $userList;
+    
+        return $this;
+    }
+
+    /**
+     * Remove userList
+     *
+     * @param \App\UserBundle\Entity\User $userList
+     */
+    public function removeUserList(\App\UserBundle\Entity\User $userList)
+    {
+        $this->userList->removeElement($userList);
+    }
 }

@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Login</h1>
+
+    {% if error %}
+        <div class="error">{{ error.message }}</div>
+    {% endif %}
+
+    <form action="{{ path("_security_check") }}" method="post" id="login">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" />
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="_password" />
+        </div>
+
+        <div>
+            <input type="checkbox" id="remember_me" name="_remember_me" checked />
+            <label for="remember_me">Keep me logged in</label>
+        </div>
+        <input type="hidden" name="_target_path" value="{{targetPath|default('')}}"/>
+        <input type="submit" class="symfony-button-grey" value="LOGIN" />
+    </form>
+{% endblock %}
+{#% set code = code(_self) %#}

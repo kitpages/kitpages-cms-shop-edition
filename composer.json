@@ -11,7 +11,10 @@
         }
     ],
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-0": {
+            "": "src/",
+            "Kitpages": "bundleDev/"
+        }
     },
     "require": {
         "php": ">=5.3.3",
@@ -30,6 +33,11 @@
         "kitpages/cms-bundle": "2.1.*",
         "kitpages/cache-control-bundle": "2.1.*",
         "friendsofsymfony/user-bundle": "1.3.*"
+    },
+    "require-dev": {
+        "kitano/payment-bundle":"dev-master",
+        "kitano/payment-fake-bundle":"dev-master",
+        "swiftmailer/swiftmailer":"4.2.*"
     },
     "scripts": {
         "post-install-cmd": [

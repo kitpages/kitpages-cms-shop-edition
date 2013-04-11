@@ -55,12 +55,6 @@ class User extends BaseUser
     private $firstname;
 
     /**
-     * @var string $country
-     */
-    private $country;
-
-
-    /**
      * Set lastname
      *
      * @param string $lastname
@@ -99,15 +93,23 @@ class User extends BaseUser
     {
         return $this->firstname;
     }
+    /**
+     * @var string
+     */
+    private $country;
+
 
     /**
      * Set country
      *
      * @param string $country
+     * @return User
      */
     public function setCountry($country)
     {
         $this->country = $country;
+    
+        return $this;
     }
 
     /**

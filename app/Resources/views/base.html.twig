@@ -59,14 +59,14 @@
                     setTimeout(function() { $('.layout-flash').fadeOut(); }, 5000);
                 </script>
                 <div class="app-logo-cms">
-                    <a href="/{{languageManager.currentLanguage}}">
+                    <a href="/{{app.request.locale}}">
                         <!-- remove spaces for inline-blocks -->
                         <!-- <img src="{{asset('img/logoCms.jpg')}}" alt="back to home" /> -->
                         Kitpages CMS
                     </a>
                 </div>
                 <!--<div class="app-header-intro">
-                    {% render 'KitpagesCmsBundle:Block:widget' with {'slug': languageManager.currentLanguage|default('en') ~ '-header-intro'} %}
+                    {% render 'KitpagesCmsBundle:Block:widget' with {'slug': app.request.locale|default('en') ~ '-header-intro'} %}
                 </div> -->
                 <div class="app-logo-kitpages">
                     <a href="http://www.kitpages.fr">
@@ -79,7 +79,7 @@
             <nav class="layout-main-navigation" role="navigation">
                 {% block mainNavigation %}
                     {% render 'KitpagesCmsBundle:Nav:widget' with {
-                        'slug': languageManager.currentLanguage|default('en') ~ '-main',
+                        'slug': app.request.locale|default('en') ~ '-main',
                         'cssClass': "app-navigation-main",
                         'currentPageSlug':kitCmsPage.slug|default(''),
                         'startDepth':1 ,
@@ -89,9 +89,9 @@
                    
                 <div class="app-header-language">
                     <ul>
-                        {% for key, locale in languageManager.localeList %}
-                            <li{% if locale==languageManager.currentLocale%} class="app-langage-selected"{%endif%}><a href="/{{key}}"><img src="{{asset('img/lng/' ~ locale ~ '.jpg')}}" alt="flag" /></a></li>
-                        {% endfor %}
+                        {#{% for key, locale in languageManager.localeList %}#}
+                            {#<li{% if locale==languageManager.currentLocale%} class="app-langage-selected"{%endif%}><a href="/{{key}}"><img src="{{asset('img/lng/' ~ locale ~ '.jpg')}}" alt="flag" /></a></li>#}
+                        {#{% endfor %}#}
                     </ul>
                 </div>
                 <div class="app-header-connection">
@@ -101,6 +101,7 @@
                         <a href="{{ path('fos_user_security_login', {'_target_path': app.request.requestUri} ) }}">Login</a>
                     {% endif %}
                 </div>
+                <a href="{{ path('fos_user_registration_register', {'_target_path': app.request.requestUri} ) }}">{{ 'Create my profile' | trans }}</a>
             </nav>
                 </div>
             </header>
@@ -114,7 +115,7 @@
                 <div class="app-navigation-footer">
                 {% block footerNavigation %}
                     {% render 'KitpagesCmsBundle:Nav:widget' with {
-                        'slug': languageManager.currentLanguage|default('en') ~ '-footer',
+                        'slug': app.request.locale|default('en') ~ '-footer',
                         'cssClass': "kit-cms-navigation-footer",
                         'currentPageSlug':kitCmsPage.slug|default('')}
                     %}

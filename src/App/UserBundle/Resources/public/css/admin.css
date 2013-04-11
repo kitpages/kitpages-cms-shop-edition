@@ -1,0 +1,52 @@
+/************************Table product list****************/
+
+/* tables */
+table.kit-user-admin-list {
+    margin-top:20px;
+    font-family:arial;
+    background-color: #EFECCA;
+    margin:10px 0px 15px 0px;
+    font-size: 9pt;
+    width: 100%;
+    text-align: left;
+}
+table.kit-user-admin-list thead tr th, table.kit-user-admin-list tfoot tr th {
+    background-color: #e6EEEE;
+    border: 1px solid #000;
+    font-size: 10pt;
+    padding: 4px;
+}
+table.kit-user-admin-list thead tr .header {
+    background-image: url(admin/bgTable.gif);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    cursor: pointer;
+}
+table.kit-user-admin-list tbody td {
+    color: #3D3D3D;
+    padding: 4px;
+    vertical-align: top;
+    border: 1px solid #000;
+}
+table.kit-user-admin-list thead tr .headerSortUp {
+    background-image: url(admin/asc.gif);
+}
+table.kit-user-admin-list thead tr .headerSortDown {
+    background-image: url(admin/desc.gif);
+}
+
+.kit-user-admin-list a{
+    color:#000000;
+}
+
+.kit-user-admin-list a:hover{
+    color: #617a1a;
+}
+
+.kit-user-admin-list li {
+    list-style-type: none;
+}
+
+
+
+

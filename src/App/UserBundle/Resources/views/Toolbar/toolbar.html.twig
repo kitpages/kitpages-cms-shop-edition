@@ -1,0 +1,21 @@
+{% if is_granted('ROLE_ADMIN') %}
+<div class="kit-cms kit-cms-toolbar">
+    <div class="kit-cms-toolbar-top kit-cms-toolbar-main">
+        <ul class="kit-cms-toolbar-top-actions">
+            <li>
+                <a href="{{ path('fos_user_registration_register') }}">New user</a>
+            </li>
+            <li>
+                <a href="{{ path('fos_user_profile_edit') }}">Edit profile</a>
+            </li>
+            <li>
+                <a href="{{ path('fos_user_change_password') }}">Change password</a>
+            </li>
+            <li>
+                <a href="{{ path('app_user_admin_user_list') }}">List user</a>
+            </li>
+        </ul>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+{% endif %}

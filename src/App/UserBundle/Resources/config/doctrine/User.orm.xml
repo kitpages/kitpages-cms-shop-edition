@@ -10,8 +10,9 @@
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />
         </id>
-        <field name="lastname" type="string" column="lastname" length="255" nullable="true" />
-        <field name="firstname" type="string" column="firstname" length="255" nullable="true" />
+        <field name="lastname" type="string" column="lastname" length="255"/>
+        <field name="firstname" type="string" column="firstname" length="255"/>
+        <field name="country" type="string" column="country" length="255"/>
         <many-to-one field="group" target-entity="App\UserBundle\Entity\Group" inversed-by="userList" nullable="true" >
             <join-columns>
                 <join-column name="group_id" referenced-column-name="id" nullable="true" on-delete="SET NULL" on-update="CASCADE" />

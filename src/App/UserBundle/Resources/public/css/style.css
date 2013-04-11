@@ -1,0 +1,6 @@
+/* form */
+#fos_user_registration_form label,#fos_user_profile_form_user label , #fos_user_profile_form label, #fos_user_change_password_form label{
+    width:200px;
+    height:30px;
+    display:inline-block;
+}

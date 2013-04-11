@@ -1,0 +1,18 @@
+{% extends 'AppUserBundle:Admin:layout.html.twig' %}
+
+{% block fos_user_content %}
+<div class="app_user_group_list">
+    <table class="kit-user-admin-list">
+        <tr><td>Username</td><td>Action</td></tr>
+    {% for user in userList %}
+        <tr>
+            <td><a href="{{ path('app_user_admin_user_show', {'id': user.getId()} ) }}">{{ user.getUsername() }}</a></td>
+            <td>
+                <a href="{{ path('app_user_admin_user_edit', {'id': user.getId()} ) }}">Edit</a>
+                <a href="{{ path('app_user_admin_user_delete', {'id': user.getId()} ) }}">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock fos_user_content %}

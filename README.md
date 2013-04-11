@@ -11,7 +11,7 @@ KitpagesCms Shop Edition is based on Symfony Standard edition with additional th
 Install Composer and run the following command:
 
 ```bash
-php composer.phar create-project kitpages/kitpages-cms-edition path/ v2.1.0
+php composer.phar create-project kitpages/kitpages-cms-shop-edition path/ v2.1.0
 ```
 
 ### Modify parameters.ini

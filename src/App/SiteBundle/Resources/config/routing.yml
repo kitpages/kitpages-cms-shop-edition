@@ -1,6 +1,9 @@
 default:
     pattern:  /
     defaults: { _controller: AppSiteBundle:Default:index }
+homepage_lng:
+    pattern:  /{lang}
+    defaults: { _controller: AppSiteBundle:Default:index }
 news:
     pattern:  /{lang}/news
     defaults: { _controller: AppSiteBundle:Default:newsList, lang: en }
@@ -16,4 +19,24 @@ contact_form_send:
 page_news:
     pattern:  /{lang}/news/{kitCmsBlockSlug}
     defaults: { _controller: AppSiteBundle:Default:news, lang: en }
+
+###
+# purchase process
+###
+
+AppSiteBundle_shop_displayOrder:
+    pattern: /shop/display-order/{orderId}
+    defaults: { _controller: AppSiteBundle:PurchaseProcess:displayOrder }
+
+AppSiteBundle_shop_identification:
+    pattern:  /shop/identification
+    defaults: { _controller: AppSiteBundle:PurchaseProcess:identification }
+
+KitpagesShopCmsBundle_shop_cart:
+    pattern:  /shop/cart
+    defaults: { _controller: AppSiteBundle:PurchaseProcess:cart}
+
+AppSiteBundle_shop_backShop:
+    pattern:  /shop/back-to-shop
+    defaults: { _controller: AppSiteBundle:PurchaseProcess:backToShop}
 

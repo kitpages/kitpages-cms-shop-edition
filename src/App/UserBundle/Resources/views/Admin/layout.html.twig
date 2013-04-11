@@ -1,0 +1,21 @@
+{% extends kitpagesAdminLayout %}
+
+{% block kitpages_cms_stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/appuser/css/admin.css') }}"  media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/appuser/css/style.css') }}"  media="screen" />
+{% endblock kitpages_cms_stylesheets %}
+
+
+{% block body %}
+{{ parent() }}
+    <div class="layout-inside-main kit-admin-body">
+        <ul class="kit-cms-toolbar-top-actions">
+            <li>
+                <a href="{{ path('app_user_admin_user_create') }}">New user</a>
+            </li>
+        </ul>
+        {% block fos_user_content %}{% endblock %}
+    </div>
+{% endblock %}
+

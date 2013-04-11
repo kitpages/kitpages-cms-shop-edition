@@ -1,5 +1,8 @@
 {% extends 'KitpagesCmsBundle:Page:layout.html.twig' %}
 
+{% form_theme form 'KitpagesShopCmsBundle:Form:fields.html.twig' %}
+
+
 {% block body %}
 <div class="layout-inside-column">
     <div class="app-block-contextual">
@@ -11,7 +14,11 @@
     <h1>Nous contacter</h1>
     {% render 'KitpagesCmsBundle:Zone:widget' with {'slug': languageManager.currentLanguage|default('en') ~ '-contact-intro'} %}
     <div class="app-contact-widget app-block-standard app-block-style-black well">
-        {% render "IHQSContactBundle:Contact:form" %}
+        <form class="kit-cms-form" action="" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+
+            <input type="submit" />
+        </form>
     </div>
 
     {% render 'KitpagesCmsBundle:Zone:widget' with {'slug': languageManager.currentLanguage|default('en') ~ '-contact-body'} %}

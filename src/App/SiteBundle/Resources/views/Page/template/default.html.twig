@@ -19,6 +19,7 @@
     <div class="app-block-contextual">
         {% render 'KitpagesCmsBundle:Block:widget' with {'slug': languageManager.currentLanguage|default('en') ~ '-contextual'} %}
     </div>
+    {% render 'KitpagesShopBundle:Cart:displayCart' with {'size': 'small'} %}
 </div>
 <div class="layout-inside-main">
     <div class="app-date-author">

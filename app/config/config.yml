@@ -16,19 +16,18 @@ framework:
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  %locale%
     trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
-    session:         ~
+    session:
+        save_path: '/home/webadmin/htdocs/session'
 
 # Twig Configuration
 twig:
+    cache: false
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
     globals:
         cms:
             type: service
             id: kitpages.cms.model.cmsManager
-        languageManager:
-            type: service
-            id: app_language.manager
         base_url: "%base_url%"
         google_analytics_ua: "%google_analytics_ua%"
     exception_controller:  App\SiteBundle\Controller\ExceptionController::showAction
@@ -104,8 +103,44 @@ fos_user:
         sender_name: Admin
     service:
         mailer: fos_user.mailer.default
+    registration:
+        confirmation:
+            from_email:
+                address: "%email_webmaster%"
+                sender_name: Admin
+            enabled: false
+        form:
+            type: app_user_registration
+            handler: app_user.registration.form.handler
+    profile:
+        form:
+            type:  app_user_profile
 
 app_language:
     locale_list:
         en: en_US
         fr: fr_FR
+
+kitpages_shop:
+    is_cart_including_vat: true
+    order_display_route_name: 'AppSiteBundle_shop_displayOrder'
+    from_email: "%email_webmaster%"
+    invoice_email_list: ["sebastien.lefebvre@kitpages.fr"]
+
+kitpages_shop_cms:
+    category_list:
+        category_1:
+            category_name: "Vêtement garçon"
+            subcategory_list: ["3 mois", "6 mois"]
+        category_2:
+            category_name: "Vêtement fille"
+            subcategory_list: ["3 mois", "6 mois"]
+        category_3:
+            category_name: "Puericulture"
+#kitano_payment:
+#    service:
+#        payment_system: %payment.service%
+#    config:
+#        notification_url: "%base_url%/payment/payment-notification"
+#        internal_back_to_shop_url: "%base_url%/payment/back-to-shop"
+#        external_back_to_shop_url: "%base_url%/shop/back-to-shop"

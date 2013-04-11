@@ -1,0 +1,25 @@
+app_user_admin_user_list:
+    pattern:  /user/list
+    defaults: { _controller: AppUserBundle:Admin:userList }
+
+app_user_admin_user_show:
+    pattern:  /user/show/{id}
+    defaults: { _controller: AppUserBundle:Admin:userShow }
+    requirements:
+        id: \d+
+
+app_user_admin_user_edit:
+    pattern:  /user/edit/{id}
+    defaults: { _controller: AppUserBundle:Admin:userEdit }
+    requirements:
+        id: \d+
+
+app_user_admin_user_delete:
+    pattern:  /user/delete/{id}
+    defaults: { _controller: AppUserBundle:Admin:userDelete }
+    requirements:
+        id: \d+
+
+app_user_admin_user_create:
+    pattern:  /user/create
+    defaults: { _controller: AppUserBundle:Admin:userCreate }
