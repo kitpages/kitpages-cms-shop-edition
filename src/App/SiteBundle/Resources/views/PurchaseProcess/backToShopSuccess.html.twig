@@ -1,0 +1,26 @@
+{% extends 'KitpagesCmsBundle:Page:layout.html.twig' %}
+{% block body %}
+<div class="layout-main-center">
+    <div class="layout-inside-main">
+        <h1>{{ ('My cart') | trans }}</h1>
+
+        <div class="app-site-purchase-process">
+            {% render 'AppSiteBundle:PurchaseProcess:widgetBreadcrumb' with {'appSitePurchaseProcessBreadcrumbSelect':'payment'} %}
+            <h2>{{ ('Summary of the payment') | trans }}</h2>
+            <div class="app-site-purchase-process-payment-summary">
+                {{ "Transaction id" | trans }} : {{data.transaction_id}}<br />
+                {{ "Amount of the transaction" | trans }} : {{data.amount|kit_site_shop_price}}
+            </div>
+            <div class="app-site-purchase-process-button-prev">
+                <a href="{{ path('KitpagesShopBundle_invoice_invoiceDisplay', {'orderId':data.order_id}) }}">{{ "See the invoice" | trans }}</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+
+{% endblock body %}

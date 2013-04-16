@@ -40,3 +40,21 @@ AppSiteBundle_shop_backShop:
     pattern:  /shop/back-to-shop
     defaults: { _controller: AppSiteBundle:PurchaseProcess:backToShop}
 
+###
+# user area
+###
+
+AppSiteBundle_userArea_orderList:
+    pattern:  /userArea/orderList
+    defaults: { _controller: AppSiteBundle:UserArea:orderList }
+
+AppSiteBundle_userArea_orderDisplay:
+    pattern:  /userArea/orderDisplay/{orderId}
+    defaults: { _controller: AppSiteBundle:UserArea }
+
+###
+# catalog
+###
+AppSiteBundle_catalog_category:
+    pattern:  /catalog/category/{categoryName}
+    defaults: { _controller: AppSiteBundle:Catalog:category }

@@ -1,0 +1,25 @@
+{% extends 'KitpagesCmsBundle:Page:layout.html.twig' %}
+{% block body %}
+<div class="layout-main-center">
+    <div class="layout-inside-main">
+        <h1>{{ ('My cart') | trans }}</h1>
+
+        <div class="app-site-purchase-process">
+            {% render 'AppSiteBundle:PurchaseProcess:widgetBreadcrumb' with {'appSitePurchaseProcessBreadcrumbSelect':'payment'} %}
+            <h2>{{ ('Error') | trans }}</h2>
+            {#<h2>{{ ('Payment error') | trans }}</h2>#}
+            <div class="app-site-purchase-process-payment-summary">
+                {{message}}
+            </div>
+            <div class="app-site-purchase-process-button-prev">
+                <a href="{{ path('KitpagesShopBundle_cart_display') }}">{{ "Return to cart" | trans }}</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+{% endblock body %}

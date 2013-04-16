@@ -13,7 +13,6 @@
     <meta name="keywords" content="{{ kitCmsPageData.root.metaKeywords|default("") }}">
 
 
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta name="viewport" content="width=1024">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <link rel="apple-touch-icon" href="{{ asset('boiler/apple-touch-icon.png') }}">
@@ -49,62 +48,64 @@
     <div class="layout-all-document">
 
             <header>
-               <div class="wrapper">
-                {% set flashNotice = app.session.flash('notice') %}
-                {% if flashNotice %}<div class="layout-flash-notice layout-flash">{{ flashNotice}}</div>{% endif %}
-                {% set flashError = app.session.flash('error') %}
-                {% if flashError %}<div class="layout-flash-error">{% autoescape false %}{{ flashError}}{% endautoescape %}</div>{% endif %}
-                <script>
-                    setTimeout(function() { $('.layout-flash-error').fadeOut(); }, 8000);
-                    setTimeout(function() { $('.layout-flash').fadeOut(); }, 5000);
-                </script>
-                <div class="app-logo-cms">
-                    <a href="/{{app.request.locale}}">
-                        <!-- remove spaces for inline-blocks -->
-                        <!-- <img src="{{asset('img/logoCms.jpg')}}" alt="back to home" /> -->
-                        Kitpages CMS
-                    </a>
-                </div>
-                <!--<div class="app-header-intro">
-                    {% render 'KitpagesCmsBundle:Block:widget' with {'slug': app.request.locale|default('en') ~ '-header-intro'} %}
-                </div> -->
-                <div class="app-logo-kitpages">
-                    <a href="http://www.kitpages.fr">
-                        <img src="{{asset('img/logo.jpg')}}" alt="back to kitpages.fr"
-                        />
-                    </a>
-                </div>
+                <div class="wrapper app-header-top">
+                    <div class="">
+                        {% set flashNotice = app.session.flash('notice') %}
+                        {% if flashNotice %}<div class="layout-flash-notice layout-flash">{{ flashNotice}}</div>{% endif %}
+                        {% set flashError = app.session.flash('error') %}
+                        {% if flashError %}<div class="layout-flash-error">{% autoescape false %}{{ flashError}}{% endautoescape %}</div>{% endif %}
+                        <script>
+                            setTimeout(function() { $('.layout-flash-error').fadeOut(); }, 8000);
+                            setTimeout(function() { $('.layout-flash').fadeOut(); }, 5000);
+                        </script>
+                        <div class="app-logo-kitpages">
+                            <a href="http://www.kitpages.fr">
+                                <img src="{{asset('img/logo.jpg')}}" alt="back to kitpages.fr"
+                                        />
+                            </a>
+                        </div>
+                        <div class="app-logo-cms">
+                            <a href="/{{app.request.locale}}">
+                                Kitpages SHOP CMS
+                            </a>
+                        </div>
+                        <div class="app-header-language">
+                            <ul>
+                                {% for key, locale in languageManager.languageList %}
+                                <li{% if locale==app.request.locale%} class="app-langage-selected"{%endif%}><a href="/{{key}}"><img src="{{asset('img/lng/' ~ locale ~ '.jpg')}}" alt="flag" /></a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% if app.user %}
+                            <div class="app-header-connection"><a href="{{ path('fos_user_profile_edit') }}">{{ 'My profile' | trans }}</a></div>
+                            <div class="app-header-connection"><a href="{{ path('fos_user_security_logout') }}">Logout</a></div>
+                        {%else%}
+                            <div class="app-header-connection"><a href="{{ path('fos_user_security_login', {'_target_path': app.request.requestUri} ) }}">Login</a></div>
+                            <div class="app-header-connection"><a href="{{ path('fos_user_registration_register', {'_target_path': app.request.requestUri} ) }}">{{ 'Create my profile' | trans }}</a></div>
+                        {% endif %}
 
+                        {% if app.user %}
 
-            <nav class="layout-main-navigation" role="navigation">
-                {% block mainNavigation %}
-                    {% render 'KitpagesCmsBundle:Nav:widget' with {
-                        'slug': app.request.locale|default('en') ~ '-main',
-                        'cssClass': "app-navigation-main",
-                        'currentPageSlug':kitCmsPage.slug|default(''),
-                        'startDepth':1 ,
-                        'endDepth':1}
-                    %}
-                {% endblock %}
-                   
-                <div class="app-header-language">
-                    <ul>
-                        {#{% for key, locale in languageManager.localeList %}#}
-                            {#<li{% if locale==languageManager.currentLocale%} class="app-langage-selected"{%endif%}><a href="/{{key}}"><img src="{{asset('img/lng/' ~ locale ~ '.jpg')}}" alt="flag" /></a></li>#}
-                        {#{% endfor %}#}
-                    </ul>
-                </div>
-                <div class="app-header-connection">
-                    {% if app.user %}
-                        <a href="{{ path('fos_user_security_logout') }}">Logout</a>
-                    {%else%}
-                        <a href="{{ path('fos_user_security_login', {'_target_path': app.request.requestUri} ) }}">Login</a>
-                    {% endif %}
-                </div>
-                <a href="{{ path('fos_user_registration_register', {'_target_path': app.request.requestUri} ) }}">{{ 'Create my profile' | trans }}</a>
-            </nav>
+                        {%else%}
+
+                        {% endif %}
+                    </div>
+
                 </div>
             </header>
+            <div class="layout-main-navigation">
+            <nav class="" role="navigation">
+                {% block mainNavigation %}
+                {% render 'KitpagesCmsBundle:Nav:widget' with {
+                                    'slug': app.request.locale|default('en') ~ '-main',
+                                    'cssClass': "app-navigation-main",
+                                    'currentPageSlug':kitCmsPage.slug|default(''),
+                                    'startDepth':1 ,
+                                    'endDepth':2}
+                                %}
+                {% endblock %}
+            </nav>
+        </div>
             <div class="layout-page">
             <div class="layout-main" role="main">
                 {% block body %}{% endblock %}

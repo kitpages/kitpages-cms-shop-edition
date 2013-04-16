@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/kitpagesshop/css/common.css') }}" />
+    <div class="layout-main-center">
+        <div class="layout-inside-main">
+
+            {% if app.user %}
+
+            {% render 'AppSiteBundle:UserArea:widgetNavigation' with {'appSiteUserAreaNavigationSelect':'beatDownloadable'} %}
+            <div class="app-site-userarea">
+                {% if order.id is defined %}<h2>{{ ('My order') | trans }} {{order.id}}</h2>{% endif %}
+            {%else%}
+            <div>
+            {% endif %}
+                {% block kitpages_shop_body %}
+                {% endblock %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+

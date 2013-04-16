@@ -1,0 +1,58 @@
+{% extends 'KitpagesCmsBundle:Page:layout.html.twig' %}
+{% block body %}
+<div class="layout-main-center">
+    <div class="layout-inside-main">
+        <h1>{{ ('My profile') | trans }}</h1>
+
+        <div class="app-site-purchase-process">
+            {% render 'AppSiteBundle:PurchaseProcess:widgetBreadcrumb' with {'appSitePurchaseProcessBreadcrumbSelect':'identification'}  %}
+            <div>
+                <div class="app-site-purchase-process-identification">
+                    <h2>{{ ('I already registered') | trans }}</h2>
+                    <div>
+                        {% if error %}
+                            <div class="app-site-error"><ul><li>{{ error }}</li></ul></div>
+                        {% endif %}
+
+                        <form action="{{ path("fos_user_security_check") }}" method="post">
+                            <div>
+                                <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                                <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                            </div>
+                            <div>
+                                <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                                <input type="password" id="password" name="_password" />
+                            </div>
+                            <a href="{{ path('fos_user_resetting_request') }}">{{ 'Forgotten Password'|trans({}, 'FOSUserBundle') }}</a>
+                            <input type="submit" id="_submit" name="_submit" value="{{ 'I identify'|trans() }}" />
+                        </form>
+
+                    </div>
+                </div>
+                <div class="app-site-purchase-process-identification">
+                    <h2>{{ ('I register') | trans }}</h2>
+                    {% form_theme form theme %}
+
+                    <form action="{{ path('AppSiteBundle_shop_identification') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+                        {{ form_widget(form) }}
+                        <div>
+                            <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+                        </div>
+                    </form>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% include "AppSiteBundle:Page:elements/_column.html.twig" with {
+    "isCart": false,
+    "isAddThis": false,
+    'isNewsletter':true,
+    'isTopSelling':true
+}%}
+
+{% endblock body %}

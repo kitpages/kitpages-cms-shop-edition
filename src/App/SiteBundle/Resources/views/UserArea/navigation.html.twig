@@ -1,0 +1,7 @@
+<div class="kit-site-userarea-nav">
+    <h1>{{ ('Customer Area') | trans }}</h1>
+    <ul>
+        <li {% if appSiteUserAreaNavigationSelect == 'profileEdit' %} class='select'{% endif %} ><a href="{{ path('fos_user_profile_edit', {'_target_path': app.request.requestUri} ) }}">{{ 'Edit my profile' | trans }}</a></li>
+        <li {% if appSiteUserAreaNavigationSelect == 'beatDownloadable' %} class='select'{% endif %} ><a href="{{ path('AppSiteBundle_userArea_orderList') }}">{{ 'My orders' | trans }}</a></li>
+    </ul>
+</div>

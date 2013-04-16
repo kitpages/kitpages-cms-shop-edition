@@ -35,6 +35,8 @@ class AppKernel extends Kernel
             new App\LanguageBundle\AppLanguageBundle(),
             new Kitpages\ShopCmsBundle\KitpagesShopCmsBundle(),
             new Kitpages\ShopBundle\KitpagesShopBundle(),
+            new Kitano\PaymentBundle\KitanoPaymentBundle(),
+            new Kitano\PaymentFakeBundle\KitanoPaymentFakeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

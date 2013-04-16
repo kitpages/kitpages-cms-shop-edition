@@ -30,6 +30,17 @@ header .wrapper {
     margin-right: auto;
 }
 
+.layout-main-navigation {
+    padding-top: 5px;
+    height: 55px;
+}
+
+.layout-main-navigation nav {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .layout-page {
     position: relative;
     width: 960px;
@@ -37,35 +48,59 @@ header .wrapper {
     min-height: 400px;
 }
 
-nav.layout-main-navigation{
+.layout-main-navigation nav{
     padding-top: 15px;
 }
-nav.layout-main-navigation .app-navigation-main {
+.layout-main-navigation nav .app-navigation-main {
     margin: 0 10px 0 20px;
-    position: relative;
-    float: left;
     list-style: none;
 }
-nav.layout-main-navigation .app-navigation-main li{
+.layout-main-navigation nav .app-navigation-main > li{
     float: left;
-} 
+    border-right: 1px solid #9bcdd8;
+    position: relative;
+    height:25px;
+}
 
-nav.layout-main-navigation .app-navigation-main > li > a {
+.layout-main-navigation nav .app-navigation-main > li > a {
     position: relative;
     font-size: 14px;
     padding: 13px 15px;
     text-shadow: none;
     line-height: 19px;
-    /*color: #000; */
     color: #999;
     text-decoration: none;
 }
-nav.layout-main-navigation .app-navigation-main > li > a:hover{
-    color: #333;
+.layout-main-navigation nav .app-navigation-main > li:hover{
+    color: #000;
+    background-color: #9bcdd8;
 }
-nav.layout-main-navigation .app-navigation-main > li.kit-cms-select > a {
+.layout-main-navigation nav .app-navigation-main > li.kit-cms-select > a {
     color: #800;
 }
+
+.layout-main-navigation nav .app-navigation-main > li > ul {
+    background-color: #9bcdd8;
+    margin-left: 0px;
+    border-radius: 0 5px 5px 5px;
+    left: 0;
+    position: absolute;
+    top: 25px;
+    width: 300px;
+    z-index: 2;
+}
+.layout-main-navigation nav .app-navigation-main > li > ul > li {
+    display: block;
+}
+.layout-main-navigation nav .app-navigation-main > li > ul > li > a {
+    color: #000;
+    display: block;
+    font-weight: bold;
+    padding: 5px 20px;
+    text-decoration: none;
+}
+
+
 .app-navigation-level2 li > a {
     display: block;
     position: relative;
@@ -76,23 +111,23 @@ nav.layout-main-navigation .app-navigation-main > li.kit-cms-select > a {
 }
 
 /* Select language */
-header nav  .app-header-language {
+header  .app-header-language {
     float:right;
     margin-right: 20px;
 }
-header nav .app-header-language li {
+header .app-header-language li {
     display:inline;
     opacity:0.6;
 }
 
-header nav .app-header-language li.app-langage-selected{
+header .app-header-language li.app-langage-selected{
     opacity:1;
 }
-header nav  .app-header-language  li:hover{
+header .app-header-language  li:hover{
     opacity:1;
 }
 
-header nav .app-header-connection{
+header .app-header-connection{
     border: 1px solid #DDDDDD;
     border-radius: 20px 20px 20px 20px;
     box-shadow: 0 1px 0 #AAAAAA;
@@ -103,7 +138,7 @@ header nav .app-header-connection{
     padding: 7px 16px 6px;
     text-transform: uppercase;
 }
-header nav .app-header-connection a{ color: #000; text-decoration: none;  }
+header .app-header-connection a{ color: #000; text-decoration: none;  }
 
 .layout-main {
     display: block;

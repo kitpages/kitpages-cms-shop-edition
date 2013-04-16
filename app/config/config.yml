@@ -28,6 +28,9 @@ twig:
         cms:
             type: service
             id: kitpages.cms.model.cmsManager
+        languageManager:
+            type: service
+            id: app_language.manager
         base_url: "%base_url%"
         google_analytics_ua: "%google_analytics_ua%"
     exception_controller:  App\SiteBundle\Controller\ExceptionController::showAction
@@ -137,10 +140,21 @@ kitpages_shop_cms:
             subcategory_list: ["3 mois", "6 mois"]
         category_3:
             category_name: "Puericulture"
-#kitano_payment:
-#    service:
-#        payment_system: %payment.service%
-#    config:
-#        notification_url: "%base_url%/payment/payment-notification"
-#        internal_back_to_shop_url: "%base_url%/payment/back-to-shop"
-#        external_back_to_shop_url: "%base_url%/shop/back-to-shop"
+kitano_payment:
+    service:
+        payment_system: %payment.service%
+    config:
+        notification_url: "%base_url%/payment/payment-notification"
+        internal_back_to_shop_url: "%base_url%/payment/back-to-shop"
+        external_back_to_shop_url: "%base_url%/shop/back-to-shop"
+
+monolog:
+    handlers:
+        main:
+            type: stream
+            channels: !kitano_payment
+        kitano_payment:
+            type: stream
+            path: "%kernel.logs_dir%/kitano_payment_%kernel.environment%.log"
+            level: debug
+            channels: kitano_payment

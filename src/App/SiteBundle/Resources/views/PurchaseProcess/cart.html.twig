@@ -1,0 +1,24 @@
+{% extends 'KitpagesCmsBundle:Page:layout.html.twig' %}
+{% block body %}
+<div class="layout-main-center">
+    <div class="layout-inside-main">
+        <h1>{{ ('My cart') | trans }}</h1>
+
+        <div class="app-site-purchase-process">
+            {% render 'AppSiteBundle:PurchaseProcess:widgetBreadcrumb' with {'appSitePurchaseProcessBreadcrumbSelect':'basket'} %}
+            {% render 'KitpagesShopBundle:Cart:displayCart' with {'size':'big'} %}
+        </div>
+
+
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+{% include "AppSiteBundle:Page:elements/_column.html.twig" with {
+    "isCart": false,
+    "isAddThis": false,
+    'isNewsletter':true,
+    'isTopSelling':true
+}%}
+
+{% endblock body %}

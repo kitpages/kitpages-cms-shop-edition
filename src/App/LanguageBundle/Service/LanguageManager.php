@@ -27,30 +27,6 @@ class LanguageManager {
     }
 
     public function onKernelRequest(GetResponseEvent $event)
-//    {
-//
-//        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
-//            return;
-//        }
-//        $request = $event->getRequest();
-//        $attributes = $request->attributes;
-//        $lang = $attributes->get('lang', null);
-//
-//        if(in_array($lang, $this->languageList)) {
-////            $request->setLocale($this->localeList[$lang]);
-//            $request->setLocale($lang);
-//        }
-//        //if (!in_array($request->getLocale(), $this->localeList)) {
-//        if (!in_array($request->getLocale(), $this->languageList)) {
-//            $request->setLocale($request->getPreferredLanguage(array_values($this->languageList)));
-//        }
-//
-////        echo var_dump(\Symfony\Component\Locale\Locale::getLanguages());
-////        echo var_dump($this->localeList);
-////        echo var_dump($request->getPreferredLanguage(array_values($this->languageList)));
-//        setlocale(LC_TIME, $this->localeList[$lang]);
-//
-//    }
     {
 
         if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {

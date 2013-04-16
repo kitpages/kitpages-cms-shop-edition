@@ -13,7 +13,8 @@
     "autoload": {
         "psr-0": {
             "": "src/",
-            "Kitpages": "bundleDev/"
+            "Kitpages": "bundleDev/",
+            "Kitano": "bundleDev/"
         }
     },
     "require": {
@@ -52,7 +53,8 @@
             "App\\SiteBundle\\Composer\\Script::copyParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "php symfony/symfony/src/Symfony/Component/Locale/Resources/data build-data.php 49"
         ]
     },
     "minimum-stability": "dev",

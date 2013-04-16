@@ -1,0 +1,8 @@
+<ul class="app-site-purchase-process-breadcrumb">
+    <li class="first {% if appSitePurchaseProcessBreadcrumbSelect == 'basket' %} select{% endif %}" >{{ ('Cart') | trans }}</li>
+    <li {% if appSitePurchaseProcessBreadcrumbSelect == 'identification' %} class='select'{% endif %} >{{ ('Identification') | trans }}</li>
+    <li {% if appSitePurchaseProcessBreadcrumbSelect == 'order confirmation' %} class='select'{% endif %} >{{ ('Order confirmation') | trans }}</li>
+    <li {% if appSitePurchaseProcessBreadcrumbSelect == 'payment' %} class='select'{% endif %} >{{ ('Download') | trans }}</li>
+    {#<li {% if appSitePurchaseProcessBreadcrumbSelect == 'payment' %} class='select'{% endif %} >{{ ('Payment') | trans }}</li>#}
+    {#<li {% if appSitePurchaseProcessBreadcrumbSelect == 'download' %} class='select'{% endif %} >{{ ('Download') | trans }}</li>#}
+</ul>

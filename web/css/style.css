@@ -14,14 +14,14 @@ a {
 
 
 .app-header-connection {
-    float:right;
+    display:inline-block;
     line-height:43px;
 }
 
 /* logo */
 
 .app-logo-kitpages{
-    float:right;
+    display:inline-block;
 }
 
 a img{
@@ -29,9 +29,9 @@ a img{
 }
 
 .app-logo-cms{
-    float:left;
-    padding: 15px 20px 8px;
-    font-size: 20px;
+    display:inline-block;
+    padding: 15px 150px 8px 20px;
+    font-size: 24px;
 }
 .app-logo-cms a{ color: #c6012c; }
 

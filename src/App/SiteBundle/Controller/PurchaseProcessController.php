@@ -153,9 +153,8 @@ class PurchaseProcessController extends Controller
     public function backToShopAction()
     {
         $transactionId = $this->get('request')->query->get('transactionId', null);
-
         // on récupère la transaction
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $transaction = $em->getRepository("KitanoPaymentBundle:Transaction")->find($transactionId);
 
         if ($transaction == null) {
@@ -182,7 +181,8 @@ class PurchaseProcessController extends Controller
         $data = array(
             'transaction_id' => $transactionId,
             'amount'         => $transaction->getAmount(),
-            'state'          => $order->getState()
+            'state'          => $order->getState(),
+            'order_id'       => $order->getId()
 
         );
 

@@ -6,6 +6,14 @@ kitpages_shop:
     resource: "@KitpagesShopBundle/Resources/config/routing.xml"
     prefix:   /
 
+kitpages_payment:
+    resource: "@KitanoPaymentBundle/Resources/config/routing.xml"
+    prefix:   /payment
+
+kitpages_payment_fake:
+    resource: "@KitanoPaymentFakeBundle/Resources/config/routing/payment.xml"
+    prefix:   /
+
 app_kit_site:
     resource: "@AppSiteBundle/Resources/config/routing.yml"
 

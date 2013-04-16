@@ -1,0 +1,41 @@
+{% extends 'KitpagesCmsBundle:Page:layout.html.twig' %}
+{% block body %}
+<div class="layout-main-center">
+    <div class="layout-inside-main">
+        <h1>{{ ('My order') | trans }}</h1>
+
+        <div class="app-site-purchase-process">
+            {% render 'AppSiteBundle:PurchaseProcess:widgetBreadcrumb' with {'appSitePurchaseProcessBreadcrumbSelect':'order confirmation'} %}
+            <h2>{{ ('Summary of the order') | trans }}</h2>
+            <div class="app-site-purchase-process-identity">
+               <div class="app-site-purchase-process-identity-info-title">{{ ("Customer's identity") | trans }}</div>
+                <div class="app-site-purchase-process-identity-info">
+                    {{invoiceUser.firstName}} {{invoiceUser.lastName}}<br />
+                    {{invoiceUser.email}}<br />
+                    {{invoiceUser.countryCode|kit_catalog_country(app.session.locale)}}
+
+                </div>
+            </div>
+            {{ ('Check your email, in case of error you can') | trans }}  <a href="{{ path('fos_user_profile_edit', {'_target_path': app.request.requestUri} ) }}" class="app-site-purchase-process-profil-edit" >{{ ('edit your profile') | trans }}</a>
+            <br /><br /><br />
+            <h2>{{ ('List of Beat') | trans }}</h2>
+            {% render 'KitpagesShopBundle:Order:displayOrder' with {
+                'order': order,
+                'invoiceUser': invoiceUser,
+                'shippingUser': shippingUser
+            } %}
+        </div>
+
+
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+{% include "AppSiteBundle:Page:elements/_column.html.twig" with {
+    "isCart": false,
+    "isAddThis": false,
+    'isNewsletter':true,
+    'isTopSelling':true
+}%}
+
+{% endblock body %}
