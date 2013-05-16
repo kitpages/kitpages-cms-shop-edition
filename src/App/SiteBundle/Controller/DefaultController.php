@@ -33,8 +33,6 @@ class DefaultController extends Controller
 
         $form   = $this->createForm(new ContactType());
 
-        echo var_dump($this->container->getParameter('kitpages_shop_cms.category_list'));
-
         return $this->render(
             'AppSiteBundle:Default:contact.html.twig',
             array(

@@ -52,7 +52,7 @@ header .wrapper {
     padding-top: 15px;
 }
 .layout-main-navigation nav .app-navigation-main {
-    margin: 0 10px 0 20px;
+    margin: 0 10px 0 0px;
     list-style: none;
 }
 .layout-main-navigation nav .app-navigation-main > li{
@@ -68,12 +68,14 @@ header .wrapper {
     padding: 13px 15px;
     text-shadow: none;
     line-height: 19px;
-    color: #999;
+    color: #000;
     text-decoration: none;
 }
 .layout-main-navigation nav .app-navigation-main > li:hover{
-    color: #000;
     background-color: #9bcdd8;
+}
+.layout-main-navigation nav .app-navigation-main > li:hover > a{
+
 }
 .layout-main-navigation nav .app-navigation-main > li.kit-cms-select > a {
     color: #800;
@@ -99,7 +101,9 @@ header .wrapper {
     padding: 5px 20px;
     text-decoration: none;
 }
-
+.layout-main-navigation nav .app-navigation-main > li > ul > li > a:hover {
+    text-decoration: underline;
+}
 
 .app-navigation-level2 li > a {
     display: block;

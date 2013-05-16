@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+<div class="layout-inside-column">
+    {% render 'KitpagesShopBundle:Cart:displayCart' with {'size': 'small'} %}
+    {% if (kitCmsPageData.page.level > 2 and kitCmsPageData.page.hasChildren) or (kitCmsPageData.page.level > 3) %}
+    <div class="app-navigation-level2 app-block-contextual">
+        <h3>Navigation</h3>
+        {% render 'KitpagesCmsBundle:Nav:widget' with {
+            'slug': kitCmsPageData.page.language|default(cms.currentLanguage) ~ '-main',
+            'cssClass': "",
+            'currentPageSlug':kitCmsPageData.page.slug|default(''),
+            'startDepth':2 ,
+            'endDepth':2}
+        %}
+    </div>
+    {%endif%}
+    {% render 'KitpagesCmsBundle:Page:widgetZone' with {'location_in_page': 'column', 'page':kitCmsPage} %}
+</div>
+<div class="layout-inside-main">
+    {%if kitCmsPageData.page.title|default('') %}
+    <h1>{{ kitCmsPageData.page.title}}</h1>
+    <div class="app-separator"></div>
+    {%endif%}
+    <div class="app-product-list">
+        {% render 'KitpagesCmsBundle:Page:widgetZone' with {'location_in_page': 'main', 'page':kitCmsPage} %}
+    </div>
+</div>
+<div style="clear:both;"></div>
+{% endblock body %}

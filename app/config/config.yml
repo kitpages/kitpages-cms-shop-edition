@@ -134,10 +134,10 @@ kitpages_shop_cms:
     category_list:
         category_1:
             category_name: "Vêtement garçon"
-            subcategory_list: ["3 mois", "6 mois"]
+            subcategory_list: ["3 mois", "6 mois", "9 mois", "12 mois", "18 mois", "2 ans", "3 ans", "4 ans", "5 ans", "6 ans"]
         category_2:
             category_name: "Vêtement fille"
-            subcategory_list: ["3 mois", "6 mois"]
+            subcategory_list: ["3 mois", "6 mois", "9 mois", "12 mois", "18 mois", "2 ans", "3 ans", "4 ans", "5 ans", "6 ans"]
         category_3:
             category_name: "Puericulture"
 kitano_payment:
@@ -147,14 +147,3 @@ kitano_payment:
         notification_url: "%base_url%/payment/payment-notification"
         internal_back_to_shop_url: "%base_url%/payment/back-to-shop"
         external_back_to_shop_url: "%base_url%/shop/back-to-shop"
-
-monolog:
-    handlers:
-        main:
-            type: stream
-            channels: !kitano_payment
-        kitano_payment:
-            type: stream
-            path: "%kernel.logs_dir%/kitano_payment_%kernel.environment%.log"
-            level: debug
-            channels: kitano_payment

@@ -52,9 +52,4 @@ AppSiteBundle_userArea_orderDisplay:
     pattern:  /userArea/orderDisplay/{orderId}
     defaults: { _controller: AppSiteBundle:UserArea }
 
-###
-# catalog
-###
-AppSiteBundle_catalog_category:
-    pattern:  /catalog/category/{categoryName}
-    defaults: { _controller: AppSiteBundle:Catalog:category }
+

@@ -256,3 +256,14 @@ input:invalid, textarea:invalid {
     padding: 8px;
 }
 
+.app-product-list .app-block-standard{
+    display:inline-block;
+    width:200px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.app-product-list .app-block-standard h2{
+    font-size:14px;
+}
+
