@@ -3,6 +3,7 @@
 {% block body %}
 
 <div class="layout-inside-column">
+    {% render 'KitpagesShopBundle:Cart:displayCart' with {'size': 'small'} %}
     {% if (kitCmsPageData.page.level > 2 and kitCmsPageData.page.hasChildren) or (kitCmsPageData.page.level > 3) %}
     <div class="app-navigation-level2 app-block-contextual">
         <h3>Navigation</h3>
@@ -19,7 +20,6 @@
     <div class="app-block-contextual">
         {% render 'KitpagesCmsBundle:Block:widget' with {'slug': languageManager.currentLanguage|default('en') ~ '-contextual'} %}
     </div>
-    {% render 'KitpagesShopBundle:Cart:displayCart' with {'size': 'small'} %}
 </div>
 <div class="layout-inside-main">
     <div class="app-date-author">

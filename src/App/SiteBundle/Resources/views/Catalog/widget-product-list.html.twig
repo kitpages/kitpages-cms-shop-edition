@@ -1,0 +1,7 @@
+{% for page in pageList %}
+    <div>
+        <div><a href="{{page.url}}" ><img src="{{ page.mediaList.mainImage.0.default.url|default('') }}" /></a></div>
+        <div><a href="{{page.url}}" >{{ page.menuTitle }}</a></div>
+        <div>{{ page.description }}</div>
+    </div>
+{% endfor %}

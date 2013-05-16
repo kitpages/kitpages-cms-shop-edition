@@ -24,10 +24,17 @@
     <script>window.jQuery || document.write("<script src='{{ asset('boiler/js/libs/jquery-1.6.2.min.js') }}'>\x3C/script>")</script>
 
     {% block stylesheets %}{% endblock %}
-    {% block kitpages_cms_stylesheets %}{% endblock %}
     {% block javascripts %}{% endblock %}
-    {% block kitpages_cms_javascripts %}{% endblock %}
+    {% block kitpages_cms_stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset ("bundles/kitpagesfile/uploadify/uploadify.css") }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset ("bundles/kitpagesfile/css/style.css") }}" />
+    {% endblock kitpages_cms_stylesheets %}
 
+    {% block kitpages_cms_javascripts %}
+        <script type="text/javascript" src="{{ asset ("bundles/kitpagesfile/uploadify/swfobject.js") }}"></script>
+        <script type="text/javascript" src="{{ asset ("bundles/kitpagesfile/uploadify/jquery.uploadify.v2.1.4.min.js") }}"></script>
+        {% include 'KitpagesFileBundle:Upload:pluginJs.html.twig' ignore missing %}
+    {% endblock kitpages_cms_javascripts %}
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
