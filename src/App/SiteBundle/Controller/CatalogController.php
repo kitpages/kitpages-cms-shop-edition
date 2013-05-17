@@ -59,20 +59,29 @@ class CatalogController extends NavController
                 function() use ($myThis, $em, $slug ) {
                     $em = $myThis->getDoctrine()->getManager();
                     $context = $myThis->get('kitpages.cms.controller.context');
-
-                    $page = $em->getRepository('KitpagesCmsBundle:Page')->findOneBySlug($slug);
-
-                    if ($page != null) {
-                        $pageChildren = $em->getRepository('KitpagesCmsBundle:Page')->childrenOfDepth($page, 1);
+                    $navPublish = $em->getRepository('KitpagesCmsBundle:NavPublish')->findOneBySlug($slug);
+                    $pageList = array();
+                    if ($navPublish != null) {
+                        $navPublishList = $em->getRepository('KitpagesCmsBundle:NavPublish')->childrenOfDepth($navPublish, 1);
                         $cmsFileManager = $cmsFileManager = $this->get('kitpages.cms.manager.file');
                         $dataInheritanceList = $this->container->getParameter('kitpages_cms.page.data_inheritance_list');
-                        foreach($pageChildren as $page) {
-                            $dataRoot = $em->getRepository('KitpagesCmsBundle:Page')->getDataWithInheritance($page, $dataInheritanceList);
-                            $pageList[] = array(
-                                'menuTitle' => $page->getMenuTitle(),
-                                'url' => $this->getPageLink($page),
-                                'mediaList' => $cmsFileManager->mediaList($dataRoot, false)
-                            );
+                        foreach($navPublishList as $navPublish) {
+                            $pagePublish = $em->getRepository('KitpagesCmsBundle:PagePublish')->findOneBySlug($navPublish->getSlug());
+                           // echo var_dump($pagePublish);
+                            if ($pagePublish != null) {
+                                $data = $pagePublish->getData();
+                                $dataRoot = $data['root'];
+                                $description = '';
+                                if (isset($dataRoot['description'])){
+                                    $description = $dataRoot['description'];
+                                }
+                                $pageList[] = array(
+                                    'menuTitle' => $navPublish->getTitle(),
+                                    'description' => $description,
+                                    'url' => $this->getPagePublishLink($navPublish),
+                                    'mediaList' => $cmsFileManager->mediaList($dataRoot, false)
+                                );
+                            }
                         }
                     }
                     return $myThis->render(
